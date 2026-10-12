@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<section class="hero reveal">
+  {% if site.now %}<p class="now"><span class="pulse"></span>{{ site.now }}</p>{% endif %}
+  <h1 class="display">Hi, I'm Abdo <span class="wave">👋</span><br>I build <em>companies</em> &amp; <span class="mark">tiny things</span> on the internet.</h1>
+  <p class="lede">This is a short paragraph about who you are, what you care about, and what you're working on right now. Keep it human — a sentence or two is plenty.</p>
+  <p class="links">
+    <a class="pill" href="https://github.com/UNFNSHED">GitHub ↗</a>
+    <a class="pill" href="https://x.com/">X ↗</a>
+    <a class="pill" href="mailto:hello@unfnshed.com">Say hi ✉</a>
+  </p>
+</section>
+
+<section class="reveal" style="--d:1">
+  <h2 class="section-title"><span>01</span> Companies</h2>
+  <div class="cards">
+  {% for c in site.data.companies %}
+    <a class="card" href="{{ c.url }}" style="--c: {{ c.color | default: 'var(--accent)' }}">
+      <span class="badge">{{ c.name | slice: 0 }}</span>
+      <span class="card-body">
+        <span class="card-name">{{ c.name }} <span class="arrow">↗</span></span>
+        <span class="card-meta">{{ c.role }}{% if c.since %} · since {{ c.since }}{% endif %}</span>
+        <span class="card-desc">{{ c.description }}</span>
+      </span>
+    </a>
+  {% endfor %}
+  </div>
+</section>
+
+<section class="reveal" style="--d:2">
+  <h2 class="section-title"><span>02</span> Side projects</h2>
+  <ul class="rows">
+  {% for p in site.data.projects %}
+    <li><a href="{{ p.url }}">
+      <span class="row-icon">{{ p.emoji | default: '✦' }}</span>
+      <span class="row-main"><span class="row-title">{{ p.name }}</span><span class="row-desc">{{ p.description }}</span></span>
+      <span class="row-meta">{{ p.year }} <span class="arrow">→</span></span>
+    </a></li>
+  {% endfor %}
+  </ul>
+</section>
+
+<section class="reveal" style="--d:3">
+  <h2 class="section-title"><span>03</span> Writing</h2>
+  <ul class="rows">
+  {% for post in site.posts limit:5 %}
+    <li><a href="{{ post.url | relative_url }}">
+      <span class="row-main"><span class="row-title">{{ post.title }}</span></span>
+      <span class="row-meta">{{ post.date | date: '%b %-d, %Y' }} <span class="arrow">→</span></span>
+    </a></li>
+  {% endfor %}
+  </ul>
+  <p class="more"><a class="arrow-link" href="{{ '/blog/' | relative_url }}">All posts <span>→</span></a></p>
+</section>

@@ -1,9 +1,16 @@
-# Small side projects. Edit freely.
+# Small side projects. `emoji` is optional.
 - name: Project One
   url: https://github.com/UNFNSHED
   year: 2026
+  emoji: "🛠"
   description: A tiny tool that does one thing well.
 - name: Project Two
   url: https://github.com/UNFNSHED
   year: 2025
-  description: A weekend experiment.
+  emoji: "🧪"
+  description: A weekend experiment that got out of hand.
+- name: Project Three
+  url: https://github.com/UNFNSHED
+  year: 2025
+  emoji: "🎧"
+  description: Something fun, half-finished, still proud of it.

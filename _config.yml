@@ -1,5 +1,7 @@
 title: Abdo
 description: Founder, builder, occasional writer.
+# Shown as the little "currently" status on the home page. Leave blank to hide.
+now: Building Unfnshed
 permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
 plugins:
@@ -8,3 +10,4 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - vendor

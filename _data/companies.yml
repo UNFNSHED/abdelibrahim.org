@@ -1,9 +1,13 @@
-# Your companies. Edit freely.
+# Your companies. `color` tints the little monogram badge (any CSS color).
 - name: Unfnshed
   url: https://unfnshed.com
   role: Founder
+  since: 2024
+  color: "#ff5a1f"
   description: One line about what this company does.
 - name: Another Company
   url: https://example.com
   role: Co-founder
+  since: 2022
+  color: "#3b6cff"
   description: One line about what this company does.

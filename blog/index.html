@@ -2,9 +2,21 @@
 layout: default
 title: Blog
 ---
-<h1>Blog</h1>
-<ul class="posts">
-{% for post in site.posts %}
-  <li><span class="muted">{{ post.date | date: '%Y-%m-%d' }}</span> <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+<section class="reveal">
+  <h1 class="display">Notes &amp; <em>half-baked</em> thoughts.</h1>
+  <p class="lede">Things I'm learning while building companies and tinkering on the side.</p>
+</section>
+{% assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+{% for year in by_year %}
+<section class="reveal" style="--d:{{ forloop.index }}">
+  <h2 class="section-title"><span>{{ year.name }}</span></h2>
+  <ul class="rows">
+  {% for post in year.items %}
+    <li><a href="{{ post.url | relative_url }}">
+      <span class="row-main"><span class="row-title">{{ post.title }}</span></span>
+      <span class="row-meta">{{ post.date | date: '%b %-d' }} <span class="arrow">→</span></span>
+    </a></li>
+  {% endfor %}
+  </ul>
+</section>
 {% endfor %}
-</ul>
