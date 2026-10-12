@@ -3,7 +3,7 @@
 Built with Jekyll and hosted on GitHub Pages.
 
 - **About / intro:** edit `index.md`
-- **Companies:** edit `_data/companies.yml`
+- **Company:** edit `_data/company.yml`
 - **Projects:** edit `_data/projects.yml`
 - **New blog post:** add `_posts/YYYY-MM-DD-my-title.md` with front matter `layout: post` and `title: ...`
 

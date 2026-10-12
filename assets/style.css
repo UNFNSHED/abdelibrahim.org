@@ -64,6 +64,8 @@ p a:hover, .prose a:hover { background-size: 100% 100%; color: var(--bg); }
 
 /* sections */
 section { margin-bottom: 3.75rem; }
+.display a.plain { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; text-decoration-color: var(--rule); transition: text-decoration-color .2s; }
+.display a.plain:hover { text-decoration-color: var(--accent); }
 .section-title { display: flex; align-items: baseline; gap: .75rem; font-family: var(--display); font-weight: 650; font-size: 1.5rem; letter-spacing: -.02em; margin: 0 0 1.25rem; }
 .section-title span { font-family: var(--mono); font-size: .75rem; font-weight: 600; letter-spacing: .08em; color: var(--accent); }
 
