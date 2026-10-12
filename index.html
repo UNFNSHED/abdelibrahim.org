@@ -3,8 +3,7 @@ layout: default
 ---
 
 <section class="hero reveal">
-  {% if site.now %}<p class="now"><span class="pulse"></span>{{ site.now }}</p>{% endif %}
-  <h1 class="display">Hi, I'm Abdo <span class="wave">👋</span><br>I build <em>companies</em> &amp; <span class="mark">tiny things</span> on the internet.</h1>
+  <h1 class="display">Hi, I'm Abdo <span class="wave">👋</span><br>I build companies &amp; tiny things on the internet.</h1>
   <p class="lede">This is a short paragraph about who you are, what you care about, and what you're working on right now. Keep it human — a sentence or two is plenty.</p>
   <p class="links">
     <a class="pill" href="https://github.com/UNFNSHED">GitHub ↗</a>
@@ -17,7 +16,7 @@ layout: default
   <h2 class="section-title"><span>01</span> Companies</h2>
   <div class="cards">
   {% for c in site.data.companies %}
-    <a class="card" href="{{ c.url }}" style="--c: {{ c.color | default: 'var(--accent)' }}">
+    <a class="card" href="{{ c.url }}">
       <span class="badge">{{ c.name | slice: 0 }}</span>
       <span class="card-body">
         <span class="card-name">{{ c.name }} <span class="arrow">↗</span></span>
