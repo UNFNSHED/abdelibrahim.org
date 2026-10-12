@@ -3,53 +3,45 @@ layout: default
 ---
 
 <section class="hero reveal">
-  <h1 class="display">Hi, I'm Abdo <span class="wave">👋</span><br>I'm building <a class="plain" href="https://unfnshed.com">Unfnshed</a>, and making small things on the side.</h1>
-  <p class="lede">This is a short paragraph about who you are, what you care about, and what you're working on right now. Keep it human — a sentence or two is plenty.</p>
-  <p class="links">
-    <a class="pill" href="https://github.com/UNFNSHED">GitHub ↗</a>
-    <a class="pill" href="https://x.com/">X ↗</a>
-    <a class="pill" href="mailto:hello@unfnshed.com">Say hi ✉</a>
-  </p>
+  <h1 class="display">Abdo</h1>
+  <p class="lede">I'm building <a href="https://unfnshed.com">Unfnshed</a>, and making small things on the side.</p>
+  <p class="sub">This is a short paragraph about who you are, what you care about, and what you're working on right now. Find me on <a href="https://github.com/UNFNSHED">GitHub</a>, <a href="https://x.com/">X</a>, or say hi at <a href="mailto:hello@unfnshed.com">hello@unfnshed.com</a>.</p>
 </section>
 
+<hr>
+
 <section class="reveal" style="--d:1">
-  <h2 class="section-title"><span>01</span> Building</h2>
-  <div class="cards">
+  <h2>Building</h2>
+  <ul class="entries">
   {% for c in site.data.company %}
-    <a class="card" href="{{ c.url }}">
-      <span class="badge">{{ c.name | slice: 0 }}</span>
-      <span class="card-body">
-        <span class="card-name">{{ c.name }} <span class="arrow">↗</span></span>
-        <span class="card-meta">{{ c.role }}{% if c.since %} · since {{ c.since }}{% endif %}</span>
-        <span class="card-desc">{{ c.description }}</span>
-      </span>
-    </a>
+    <li>
+      <a class="title" href="{{ c.url }}">{{ c.name }}</a>
+      <span class="label">{{ c.role }}{% if c.since %} · since {{ c.since }}{% endif %}</span>
+      <p>{{ c.description }}</p>
+    </li>
   {% endfor %}
-  </div>
+  </ul>
 </section>
 
 <section class="reveal" style="--d:2">
-  <h2 class="section-title"><span>02</span> Side projects</h2>
-  <ul class="rows">
+  <h2>Side projects</h2>
+  <ul class="entries grid">
   {% for p in site.data.projects %}
-    <li><a href="{{ p.url }}">
-      <span class="row-icon">{{ p.emoji | default: '✦' }}</span>
-      <span class="row-main"><span class="row-title">{{ p.name }}</span><span class="row-desc">{{ p.description }}</span></span>
-      <span class="row-meta">{{ p.year }} <span class="arrow">→</span></span>
-    </a></li>
+    <li>
+      <a class="title" href="{{ p.url }}">{{ p.name }}</a>
+      <span class="label">{{ p.year }}</span>
+      <p>{{ p.description }}</p>
+    </li>
   {% endfor %}
   </ul>
 </section>
 
 <section class="reveal" style="--d:3">
-  <h2 class="section-title"><span>03</span> Writing</h2>
-  <ul class="rows">
-  {% for post in site.posts limit:5 %}
-    <li><a href="{{ post.url | relative_url }}">
-      <span class="row-main"><span class="row-title">{{ post.title }}</span></span>
-      <span class="row-meta">{{ post.date | date: '%b %-d, %Y' }} <span class="arrow">→</span></span>
-    </a></li>
+  <h2>Writing</h2>
+  <ul class="index">
+  {% for post in site.posts limit:6 %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><span class="num">{{ post.date | date: '%b %-d, %Y' }}</span></li>
   {% endfor %}
   </ul>
-  <p class="more"><a class="arrow-link" href="{{ '/blog/' | relative_url }}">All posts <span>→</span></a></p>
+  <p class="more"><a href="{{ '/blog/' | relative_url }}">All posts</a></p>
 </section>

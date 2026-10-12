@@ -2,20 +2,26 @@
 layout: default
 title: Blog
 ---
-<section class="reveal">
-  <h1 class="display">Notes &amp; <em>half-baked</em> thoughts.</h1>
-  <p class="lede">Things I'm learning while building companies and tinkering on the side.</p>
+<section class="hero reveal">
+  <h1 class="display">Writing</h1>
+  <p class="lede">Notes and half-formed thoughts from building a company and tinkering on the side.</p>
+  {% assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+  <p class="sub">{{ site.posts | size }} post{% if site.posts.size != 1 %}s{% endif %}. Subscribe via <a href="{{ '/feed.xml' | relative_url }}">RSS</a>.</p>
+  <ul class="years">
+  {% for year in by_year %}
+    <li><a href="#y{{ year.name }}">{{ year.name }}</a><span class="num">{{ year.items | size }}</span></li>
+  {% endfor %}
+  </ul>
 </section>
-{% assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+
+<hr>
+
 {% for year in by_year %}
-<section class="reveal" style="--d:{{ forloop.index }}">
-  <h2 class="section-title"><span>{{ year.name }}</span></h2>
-  <ul class="rows">
+<section class="reveal" id="y{{ year.name }}" style="--d:{{ forloop.index }}">
+  <h2>{{ year.name }}</h2>
+  <ul class="index">
   {% for post in year.items %}
-    <li><a href="{{ post.url | relative_url }}">
-      <span class="row-main"><span class="row-title">{{ post.title }}</span></span>
-      <span class="row-meta">{{ post.date | date: '%b %-d' }} <span class="arrow">→</span></span>
-    </a></li>
+    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><span class="num">{{ post.date | date: '%b %-d' }}</span></li>
   {% endfor %}
   </ul>
 </section>
