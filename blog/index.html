@@ -3,25 +3,27 @@ layout: default
 title: Blog
 ---
 <section class="hero reveal">
+  <p class="label">The blog</p>
   <h1 class="display">Writing</h1>
-  <p class="lede">Notes and half-formed thoughts from building a company and tinkering on the side.</p>
+  <p class="lede">Notes and <em>half-formed</em> thoughts from building a company and tinkering on the side.</p>
   {% assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
-  <p class="sub">{{ site.posts | size }} post{% if site.posts.size != 1 %}s{% endif %}. Subscribe via <a href="{{ '/feed.xml' | relative_url }}">RSS</a>.</p>
   <ul class="years">
   {% for year in by_year %}
     <li><a href="#y{{ year.name }}">{{ year.name }}</a><span class="num">{{ year.items | size }}</span></li>
   {% endfor %}
   </ul>
+  <p class="sub">Subscribe via <a href="{{ '/feed.xml' | relative_url }}">RSS</a>.</p>
 </section>
-
-<hr>
 
 {% for year in by_year %}
 <section class="reveal" id="y{{ year.name }}" style="--d:{{ forloop.index }}">
   <h2>{{ year.name }}</h2>
-  <ul class="index">
+  <ul class="rows">
   {% for post in year.items %}
-    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><span class="num">{{ post.date | date: '%b %-d' }}</span></li>
+    <li><a href="{{ post.url | relative_url }}">
+      <span class="row-main"><span class="row-title">{{ post.title }}</span></span>
+      <span class="num">{{ post.date | date: '%b %-d' }} <span class="arrow">→</span></span>
+    </a></li>
   {% endfor %}
   </ul>
 </section>

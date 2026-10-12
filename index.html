@@ -3,45 +3,47 @@ layout: default
 ---
 
 <section class="hero reveal">
-  <h1 class="display">Abdo</h1>
-  <p class="lede">I'm building <a href="https://unfnshed.com">Unfnshed</a>, and making small things on the side.</p>
+  <p class="label">Hello, I'm</p>
+  <h1 class="display">Abdo <span class="wave" aria-hidden="true">👋</span></h1>
+  <p class="lede">I'm building <a href="https://unfnshed.com"><em>Unfnshed</em></a>, and making <span class="squiggle">small things<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 20 2, 35 13, 52 7 S 85 2, 102 8 S 135 13, 152 6 S 185 3, 198 8"/></svg></span> on the side.</p>
   <p class="sub">This is a short paragraph about who you are, what you care about, and what you're working on right now. Find me on <a href="https://github.com/UNFNSHED">GitHub</a>, <a href="https://x.com/">X</a>, or say hi at <a href="mailto:hello@unfnshed.com">hello@unfnshed.com</a>.</p>
 </section>
 
-<hr>
-
 <section class="reveal" style="--d:1">
-  <h2>Building</h2>
-  <ul class="entries">
+  <h2><span class="n">01</span>Building</h2>
   {% for c in site.data.company %}
-    <li>
-      <a class="title" href="{{ c.url }}">{{ c.name }}</a>
+  <a class="card" href="{{ c.url }}">
+    <span class="badge">{{ c.name | slice: 0 }}</span>
+    <span class="card-body">
+      <span class="card-name">{{ c.name }} <span class="arrow">↗</span></span>
       <span class="label">{{ c.role }}{% if c.since %} · since {{ c.since }}{% endif %}</span>
-      <p>{{ c.description }}</p>
-    </li>
+      <span class="card-desc">{{ c.description }}</span>
+    </span>
+  </a>
   {% endfor %}
-  </ul>
 </section>
 
 <section class="reveal" style="--d:2">
-  <h2>Side projects</h2>
-  <ul class="entries grid">
+  <h2><span class="n">02</span>Side projects</h2>
+  <ul class="rows">
   {% for p in site.data.projects %}
-    <li>
-      <a class="title" href="{{ p.url }}">{{ p.name }}</a>
-      <span class="label">{{ p.year }}</span>
-      <p>{{ p.description }}</p>
-    </li>
+    <li><a href="{{ p.url }}">
+      <span class="row-main"><span class="row-title">{{ p.name }}</span><span class="row-desc">{{ p.description }}</span></span>
+      <span class="num">{{ p.year }} <span class="arrow">→</span></span>
+    </a></li>
   {% endfor %}
   </ul>
 </section>
 
 <section class="reveal" style="--d:3">
-  <h2>Writing</h2>
-  <ul class="index">
+  <h2><span class="n">03</span>Writing</h2>
+  <ul class="rows">
   {% for post in site.posts limit:6 %}
-    <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a><span class="num">{{ post.date | date: '%b %-d, %Y' }}</span></li>
+    <li><a href="{{ post.url | relative_url }}">
+      <span class="row-main"><span class="row-title">{{ post.title }}</span></span>
+      <span class="num">{{ post.date | date: '%b %-d, %Y' }} <span class="arrow">→</span></span>
+    </a></li>
   {% endfor %}
   </ul>
-  <p class="more"><a href="{{ '/blog/' | relative_url }}">All posts</a></p>
+  <p class="more"><a class="arrow-link" href="{{ '/blog/' | relative_url }}">All posts <span>→</span></a></p>
 </section>
