@@ -1,0 +1,9 @@
+# Your companies. Edit freely.
+- name: Unfnshed
+  url: https://unfnshed.com
+  role: Founder
+  description: One line about what this company does.
+- name: Another Company
+  url: https://example.com
+  role: Co-founder
+  description: One line about what this company does.

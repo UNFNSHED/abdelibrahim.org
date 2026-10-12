@@ -1,0 +1,10 @@
+title: Abdo
+description: Founder, builder, occasional writer.
+permalink: /blog/:year/:month/:day/:title/
+markdown: kramdown
+plugins:
+  - jekyll-feed
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
